@@ -1,0 +1,91 @@
+{
+  "sweep_settings": 68,
+  "chosen": {
+    "lam": 0.019062500000000003,
+    "share": 0.35,
+    "slots": 3,
+    "rel_chg_pct": -0.41337013244628906,
+    "secs_chg_pct": -0.4519820213317871,
+    "tags": 6.389794472005669,
+    "new_all": 3.4316087880935506,
+    "new_narrow": 4.909456740442656
+  },
+  "phase4_setting": {
+    "rel_chg_pct": -0.18555521965026855,
+    "secs_chg_pct": 0.21919012069702148,
+    "tags": 5.016300496102056,
+    "new_all": 2.7725017717930545,
+    "new_narrow": 3.839034205231388
+  },
+  "chosen_ci": {
+    "rel": [
+      -0.00232,
+      -0.00616,
+      0.00145
+    ],
+    "watch_secs": [
+      -0.03848,
+      -0.19009,
+      0.10026
+    ],
+    "distinct_tags": [
+      2.51949,
+      2.4472,
+      2.58824
+    ],
+    "new_to_user": [
+      1.50177,
+      1.41814,
+      1.58117
+    ]
+  },
+  "baseline": {
+    "rel": 0.560924768447876,
+    "watch_secs": 8.513176918029785,
+    "tags": 3.870304748405386,
+    "new_to_user": 1.9298369950389795
+  },
+  "next_day_slope": [
+    -0.3195,
+    -0.4407,
+    -0.1983
+  ],
+  "next_day_estimate": [
+    {
+      "feed_share": 0.5,
+      "group": "all users",
+      "users": 1388,
+      "day_narrowness_change": -0.0288,
+      "next_day_views_pct": 0.9237,
+      "range_lo": 0.5723,
+      "range_hi": 1.2763
+    },
+    {
+      "feed_share": 0.5,
+      "group": "triggered users",
+      "users": 485,
+      "day_narrowness_change": -0.0602,
+      "next_day_views_pct": 1.9423,
+      "range_lo": 1.2011,
+      "range_hi": 2.6888
+    },
+    {
+      "feed_share": 1.0,
+      "group": "all users",
+      "users": 1388,
+      "day_narrowness_change": -0.0272,
+      "next_day_views_pct": 0.8745,
+      "range_lo": 0.5419,
+      "range_hi": 1.2082
+    },
+    {
+      "feed_share": 1.0,
+      "group": "triggered users",
+      "users": 485,
+      "day_narrowness_change": -0.0682,
+      "next_day_views_pct": 2.204,
+      "range_lo": 1.3623,
+      "range_hi": 3.0527
+    }
+  ]
+}

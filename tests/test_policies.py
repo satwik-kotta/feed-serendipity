@@ -70,3 +70,17 @@ def test_new_to_user():
     ptag = np.array([0, 1, 2])
     hist = np.array([[0.9, 0.08, 0.02]])
     assert new_to_user(np.array([[0, 1, 2]]), ptag, hist).tolist() == [1]
+
+
+def test_mmr_triggered_slot_count():
+    rng = np.random.default_rng(3)
+    S = rng.random((3, 400))
+    ptag = rng.integers(0, 8, 400)
+    T = 8
+    hist = np.full((3, T), 0.2); hist[:, 4:] = 0.0          # tags 4-7 are new to everyone
+    adj = np.ones((T, T)); np.fill_diagonal(adj, 0)
+    state = {"narrow": np.ones(3), "recent_share": np.full((3, T), 1 / T), "hist_share": hist,
+             "tail_tag": np.full(3, -1), "tail_len": np.zeros(3, int), "adj": adj}
+    for n in (1, 3, 4):
+        top, _ = mmr_triggered(S, ptag, state, 0.0, n_slots=n)
+        assert all((hist[0][ptag[r]] == 0).sum() >= n for r in top)

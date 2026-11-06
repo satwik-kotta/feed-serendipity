@@ -112,6 +112,15 @@ Metrics per arm
 - This is the modelling bullet
 
 ### Phase 5 · Long term simulation and threshold sweep (3 days)
+
+**Done. Findings** (numbers in `reports/phase5_results.json`, sweep in `reports/phase5_sweep.csv`)
+- 68 settings swept: share of users triggered (0–100%), discovery slots (1–4), MMR strength (0–4x)
+- Stronger MMR is nearly free. Discovery slots are where the cost is. Targeting the narrowest 20–35% keeps most of the benefit for a fraction of the cost
+- Chosen setting (max new territory with relevance within 0.5% of baseline): MMR 4x, 35% triggered, 3 slots. Tags per page 3.9 -> 6.4 (+65%), new-territory slots +78%, relevance -0.4% (n.s.), watch time -0.5% (n.s.)
+- Rough next-day value via the Phase 2 slope: +0.9% next-day views overall [+0.5, +1.2], +2.2% for triggered users [+1.4, +3.1]. Observational, so this is a case for a live test, not a forecast
+- Replaced the planned multi-session simulation with this direct valuation, because the simulation would have needed an invented fatigue model, and Phase 2 gave a measured slope instead
+
+Original plan for this phase
 - Simulate 10 consecutive sessions per user. Responses come from small_matrix truth, scaled by the fatigue curve fitted in Phase 2
 - Compare cumulative watch time and narrowness over sessions for each arm
 - Sweep the trigger threshold and plot the frontier of relevance against diversity

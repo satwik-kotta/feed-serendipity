@@ -153,8 +153,8 @@ def random_explore(S, k=K, seed=0):
     return top, inj
 
 
-def _adjacent_row(S_u, pool_u, ptag, state_u, adj):
-    tags = adjacent_tags(state_u["recent_share"], state_u["hist_share"], adj)
+def _adjacent_row(S_u, pool_u, ptag, state_u, adj, n=2):
+    tags = adjacent_tags(state_u["recent_share"], state_u["hist_share"], adj, n=n)
     extra = []
     for t in tags:
         cand = np.flatnonzero((ptag == t) & np.isfinite(S_u))
@@ -217,21 +217,27 @@ def mmr(S, ptag, lam, k=K):
     return top, inj
 
 
-def mmr_triggered(S, ptag, state, lam, k=K, threshold=NARROW_TRIGGER):
+SLOT_LAYOUT = {0: (), 1: (4,), 2: INJECT_SLOTS, 3: (2, 5, 8), 4: (2, 4, 6, 8)}
+
+
+def mmr_triggered(S, ptag, state, lam, k=K, threshold=NARROW_TRIGGER, n_slots=2, base_top=None):
     """The recommended policy: MMR ordering for variety among familiar tags, then for narrow users
-    two adjacent-tag discovery slots, then the streak breaker for everyone."""
+    `n_slots` adjacent-tag discovery slots, then the streak breaker for everyone.
+    Pass `base_top` (an MMR result for the same lam) to skip recomputing MMR in a sweep."""
     pool = candidate_pool(S)
-    base_top, _ = mmr(S, ptag, lam, k)
+    if base_top is None:
+        base_top, _ = mmr(S, ptag, lam, k)
+    layout = SLOT_LAYOUT[n_slots]
     U = S.shape[0]
     top, inj = np.empty((U, k), int), np.zeros((U, k), bool)
     for u in range(U):
         st = _state(state, u)
         seen = set(base_top[u])
         order = list(base_top[u]) + [i for i in pool[u] if i not in seen]
-        extra = (_adjacent_row(S[u], np.array(order), ptag, st, state["adj"])
-                 if st["narrow"] >= threshold else [])
-        row = insert_at(order, extra)
-        slots = INJECT_SLOTS[:len(extra)]
+        extra = (_adjacent_row(S[u], np.array(order), ptag, st, state["adj"], n=n_slots)
+                 if n_slots and st["narrow"] >= threshold else [])
+        slots = layout[:len(extra)]
+        row = insert_at(order, extra, slots=slots)
         row = break_streaks(row, order, ptag, st["tail_tag"], st["tail_len"], locked=slots)
         top[u] = row
         inj[u] = ~np.isin(row, pool[u, :k])

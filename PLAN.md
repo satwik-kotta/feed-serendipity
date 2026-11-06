@@ -67,9 +67,18 @@ Original plan for this phase
 - This is the analysis bullet
 
 ### Phase 3 · Baseline recommender (3 days)
+
+**Done. Findings** (numbers in `reports/phase3_baselines.json`)
+- Raw watch ratio is the wrong target. A video's average watch ratio correlates -0.91 with its length. A LightGBM trained on it recommends 3-second clips, the same 17 for everyone, and earns fewer watch seconds than random (7.8 vs 8.4 per video)
+- Main baseline is LightGBM on a duration-debiased target: percentile of how far a play's watch ratio sits above a smooth watch-ratio-by-length curve. Like D2Q (Kuaishou, KDD 2022) but without bins, which left a saw-tooth length bias
+- Evaluation measure is fitted on the small matrix, so it is length-neutral there (r = 0.02)
+- Baseline relevance 0.561 vs 0.539 for the best global list, 0.503 ALS, 0.500 random, 0.988 oracle. Paired bootstrap intervals exclude zero
+- It is the narrowest feed of all the personalised options. 3.9 distinct tags per 10, 8% of the catalog, creator Gini 0.97. That is the before picture for Phase 4
+
+Original plan for this phase
 - ALS (implicit library) on big_matrix for candidates
 - LightGBM reranker predicting watch ratio from user, item and tag features
-- Evaluate on small_matrix with nDCG@10, Precision@10, mean watch ratio@10
+- Evaluate on small_matrix with nDCG@10, debiased relevance, watch seconds and raw watch ratio
 - Baseline needs to be strong, otherwise beating it means nothing
 
 ### Phase 4 · Policies and offline A/B (4 days)

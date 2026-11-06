@@ -8,3 +8,5 @@ __pycache__/
 data/features_*.parquet
 data/cache/
 notebooks/.run*.log
+data/models/
+notebooks/.fix*.py

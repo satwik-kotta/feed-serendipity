@@ -1,0 +1,7 @@
+data/KuaiRec/
+data/*.zip
+data/*.part
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.DS_Store

@@ -82,13 +82,24 @@ Original plan for this phase
 - Baseline needs to be strong, otherwise beating it means nothing
 
 ### Phase 4 · Policies and offline A/B (4 days)
+
+**Done. Findings** (numbers in `reports/phase4_results.json`, all paired over 1,411 users with 95% bootstrap intervals)
+- 35% of users have a narrow recent feed and get the discovery slots
+- At the same list variety (4.5 tags), MMR keeps relevance flat (+0.4%, n.s.) and triggered injection costs 0.3% (n.s.). On list variety alone, MMR wins
+- But MMR mostly varies within tags the user already watches (+0.3 new-territory slots per page for narrow users). Triggered injection adds +1.6
+- Recommended policy F = MMR + triggered discovery + streak breaker: +30% tags per list, new territory for narrow users 1.96 -> 3.85 slots, relevance -0.2% (n.s.), watch time unchanged
+- Streak breaker alone is free: relevance +0.4% (significant), +5% tags
+- Tag variety barely moves creator concentration (Gini 0.97). Only random exploration does, at a 1.6% relevance cost
+
+Original plan for this phase
 Four arms, all scored on small_matrix ground truth
 - A. Baseline. Top 10 from the reranker
 - B. Random exploration. Replace 2 of 10 slots with random items
 - C. Triggered adjacent injection (the proposal), with two triggers from Phase 2
   - Streak breaker. If the last 4 videos share a main tag, the next slot comes from an adjacent tag
   - Narrowness trigger. If rolling narrowness of the last 20 videos is above 0.378 (60th percentile), replace 1 to 2 of 10 slots with the highest predicted items from adjacent tags the user rarely watches
-- D. MMR diversity rerank. Standard academic benchmark
+- D. MMR diversity rerank. Standard academic benchmark, tuned to the same diversity as C
+- F. MMR + C's triggered discovery slots + streak breaker (added after the first results)
 
 Adjacent tags come from tag co-occurrence in the big matrix (Jaccard or PMI), so "adjacent" is learned from data, not hand picked
 

@@ -1,0 +1,385 @@
+{
+  "arms": {
+    "A. Baseline": {
+      "ndcg": 0.5705,
+      "rel": 0.5609,
+      "top20_rate": 0.249,
+      "watch_secs": 8.5132,
+      "mean_wr": 1.3375,
+      "full_rate": 0.602,
+      "replay_rate": 0.2733,
+      "distinct_tags": 3.8703,
+      "ild": 0.6246,
+      "novelty": 11.862,
+      "creator_gini": 0.9702,
+      "authors_reached": 248,
+      "head_share": 0.0267,
+      "mid_share": 0.1541,
+      "tail_share": 0.8192,
+      "catalog_coverage": 0.0803,
+      "tags_reached": 22
+    },
+    "B. Random exploration": {
+      "ndcg": 0.5631,
+      "rel": 0.5521,
+      "top20_rate": 0.241,
+      "watch_secs": 8.5259,
+      "mean_wr": 1.2483,
+      "full_rate": 0.5476,
+      "replay_rate": 0.2319,
+      "distinct_tags": 4.8264,
+      "ild": 0.7272,
+      "novelty": 11.8772,
+      "creator_gini": 0.8785,
+      "authors_reached": 1408,
+      "head_share": 0.0361,
+      "mid_share": 0.1949,
+      "tail_share": 0.769,
+      "catalog_coverage": 0.6044,
+      "tags_reached": 30
+    },
+    "C0. Streak breaker only": {
+      "ndcg": 0.5718,
+      "rel": 0.5631,
+      "top20_rate": 0.2496,
+      "watch_secs": 8.5756,
+      "mean_wr": 1.3373,
+      "full_rate": 0.605,
+      "replay_rate": 0.2716,
+      "distinct_tags": 4.0702,
+      "ild": 0.6723,
+      "novelty": 11.8536,
+      "creator_gini": 0.9703,
+      "authors_reached": 241,
+      "head_share": 0.0289,
+      "mid_share": 0.1576,
+      "tail_share": 0.8135,
+      "catalog_coverage": 0.0775,
+      "tags_reached": 22
+    },
+    "C. Triggered injection": {
+      "ndcg": 0.5687,
+      "rel": 0.5592,
+      "top20_rate": 0.2471,
+      "watch_secs": 8.4872,
+      "mean_wr": 1.3224,
+      "full_rate": 0.5989,
+      "replay_rate": 0.2616,
+      "distinct_tags": 4.5067,
+      "ild": 0.7021,
+      "novelty": 11.8731,
+      "creator_gini": 0.9687,
+      "authors_reached": 263,
+      "head_share": 0.0251,
+      "mid_share": 0.1502,
+      "tail_share": 0.8247,
+      "catalog_coverage": 0.0848,
+      "tags_reached": 28
+    },
+    "E. Adjacent for everyone": {
+      "ndcg": 0.5655,
+      "rel": 0.5554,
+      "top20_rate": 0.2442,
+      "watch_secs": 8.4794,
+      "mean_wr": 1.295,
+      "full_rate": 0.5884,
+      "replay_rate": 0.2467,
+      "distinct_tags": 5.2962,
+      "ild": 0.7549,
+      "novelty": 11.9014,
+      "creator_gini": 0.969,
+      "authors_reached": 265,
+      "head_share": 0.0202,
+      "mid_share": 0.1412,
+      "tail_share": 0.8386,
+      "catalog_coverage": 0.0854,
+      "tags_reached": 30
+    },
+    "D. MMR (matched)": {
+      "ndcg": 0.5716,
+      "rel": 0.5629,
+      "top20_rate": 0.2524,
+      "watch_secs": 8.5826,
+      "mean_wr": 1.3472,
+      "full_rate": 0.6073,
+      "replay_rate": 0.2765,
+      "distinct_tags": 4.5096,
+      "ild": 0.731,
+      "novelty": 11.8458,
+      "creator_gini": 0.9716,
+      "authors_reached": 231,
+      "head_share": 0.0318,
+      "mid_share": 0.1583,
+      "tail_share": 0.8099,
+      "catalog_coverage": 0.0748,
+      "tags_reached": 22
+    },
+    "F. MMR + triggered": {
+      "ndcg": 0.569,
+      "rel": 0.5597,
+      "top20_rate": 0.2498,
+      "watch_secs": 8.5302,
+      "mean_wr": 1.3304,
+      "full_rate": 0.601,
+      "replay_rate": 0.2652,
+      "distinct_tags": 5.0198,
+      "ild": 0.7719,
+      "novelty": 11.8588,
+      "creator_gini": 0.9701,
+      "authors_reached": 246,
+      "head_share": 0.029,
+      "mid_share": 0.1542,
+      "tail_share": 0.8168,
+      "catalog_coverage": 0.08,
+      "tags_reached": 28
+    }
+  },
+  "diffs_vs_baseline": [
+    {
+      "arm": "B. Random exploration",
+      "metric": "rel",
+      "diff": -0.00883,
+      "lo": -0.01169,
+      "hi": -0.00596,
+      "pct": -1.5749
+    },
+    {
+      "arm": "B. Random exploration",
+      "metric": "watch_secs",
+      "diff": 0.01276,
+      "lo": -0.06278,
+      "hi": 0.0764,
+      "pct": 0.14983
+    },
+    {
+      "arm": "B. Random exploration",
+      "metric": "distinct_tags",
+      "diff": 0.95606,
+      "lo": 0.91141,
+      "hi": 1.00071,
+      "pct": 24.70244
+    },
+    {
+      "arm": "B. Random exploration",
+      "metric": "new_to_user",
+      "diff": 0.1382,
+      "lo": 0.09355,
+      "hi": 0.18285,
+      "pct": 7.16122
+    },
+    {
+      "arm": "C0. Streak breaker only",
+      "metric": "rel",
+      "diff": 0.00215,
+      "lo": 0.00016,
+      "hi": 0.00413,
+      "pct": 0.38416
+    },
+    {
+      "arm": "C0. Streak breaker only",
+      "metric": "watch_secs",
+      "diff": 0.06243,
+      "lo": -0.00379,
+      "hi": 0.16115,
+      "pct": 0.73329
+    },
+    {
+      "arm": "C0. Streak breaker only",
+      "metric": "distinct_tags",
+      "diff": 0.19986,
+      "lo": 0.17293,
+      "hi": 0.22608,
+      "pct": 5.16389
+    },
+    {
+      "arm": "C0. Streak breaker only",
+      "metric": "new_to_user",
+      "diff": 0.10843,
+      "lo": 0.08292,
+      "hi": 0.13395,
+      "pct": 5.6188
+    },
+    {
+      "arm": "C. Triggered injection",
+      "metric": "rel",
+      "diff": -0.00176,
+      "lo": -0.00425,
+      "hi": 0.00058,
+      "pct": -0.3131
+    },
+    {
+      "arm": "C. Triggered injection",
+      "metric": "watch_secs",
+      "diff": -0.02598,
+      "lo": -0.09032,
+      "hi": 0.02964,
+      "pct": -0.30518
+    },
+    {
+      "arm": "C. Triggered injection",
+      "metric": "distinct_tags",
+      "diff": 0.63643,
+      "lo": 0.59036,
+      "hi": 0.68179,
+      "pct": 16.44387
+    },
+    {
+      "arm": "C. Triggered injection",
+      "metric": "new_to_user",
+      "diff": 0.63218,
+      "lo": 0.58257,
+      "hi": 0.68179,
+      "pct": 32.75799
+    },
+    {
+      "arm": "E. Adjacent for everyone",
+      "metric": "rel",
+      "diff": -0.00556,
+      "lo": -0.00862,
+      "hi": -0.00253,
+      "pct": -0.99061
+    },
+    {
+      "arm": "E. Adjacent for everyone",
+      "metric": "watch_secs",
+      "diff": -0.03376,
+      "lo": -0.11207,
+      "hi": 0.03729,
+      "pct": -0.39659
+    },
+    {
+      "arm": "E. Adjacent for everyone",
+      "metric": "distinct_tags",
+      "diff": 1.42594,
+      "lo": 1.38838,
+      "hi": 1.46421,
+      "pct": 36.84307
+    },
+    {
+      "arm": "E. Adjacent for everyone",
+      "metric": "new_to_user",
+      "diff": 1.62721,
+      "lo": 1.59318,
+      "hi": 1.66123,
+      "pct": 84.31877
+    },
+    {
+      "arm": "D. MMR (matched)",
+      "metric": "rel",
+      "diff": 0.002,
+      "lo": -0.00028,
+      "hi": 0.00419,
+      "pct": 0.35708
+    },
+    {
+      "arm": "D. MMR (matched)",
+      "metric": "watch_secs",
+      "diff": 0.06942,
+      "lo": -0.01108,
+      "hi": 0.18113,
+      "pct": 0.8154
+    },
+    {
+      "arm": "D. MMR (matched)",
+      "metric": "distinct_tags",
+      "diff": 0.63926,
+      "lo": 0.60099,
+      "hi": 0.67541,
+      "pct": 16.51712
+    },
+    {
+      "arm": "D. MMR (matched)",
+      "metric": "new_to_user",
+      "diff": 0.28065,
+      "lo": 0.24451,
+      "hi": 0.31538,
+      "pct": 14.54278
+    },
+    {
+      "arm": "F. MMR + triggered",
+      "metric": "rel",
+      "diff": -0.00126,
+      "lo": -0.00397,
+      "hi": 0.00151,
+      "pct": -0.22378
+    },
+    {
+      "arm": "F. MMR + triggered",
+      "metric": "watch_secs",
+      "diff": 0.01706,
+      "lo": -0.08061,
+      "hi": 0.13169,
+      "pct": 0.2004
+    },
+    {
+      "arm": "F. MMR + triggered",
+      "metric": "distinct_tags",
+      "diff": 1.14954,
+      "lo": 1.0978,
+      "hi": 1.20198,
+      "pct": 29.70152
+    },
+    {
+      "arm": "F. MMR + triggered",
+      "metric": "new_to_user",
+      "diff": 0.84621,
+      "lo": 0.79162,
+      "hi": 0.89938,
+      "pct": 43.8487
+    }
+  ],
+  "slot_outcomes": {
+    "B. Random exploration": {
+      "injected slots": 2822.0,
+      "q injected": 0.5064,
+      "q displaced": 0.5505,
+      "share injected above typical (q>0.5)": 0.5128,
+      "share injected watched fully": 0.3342,
+      "new tags per injected slot": 0.7123
+    },
+    "E. Adjacent for everyone": {
+      "injected slots": 2818.0,
+      "q injected": 0.5196,
+      "q displaced": 0.5551,
+      "share injected above typical (q>0.5)": 0.5241,
+      "share injected watched fully": 0.5309,
+      "new tags per injected slot": 0.939
+    },
+    "C. Triggered injection": {
+      "injected slots": 1321.0,
+      "q injected": 0.5162,
+      "q displaced": 0.5604,
+      "share injected above typical (q>0.5)": 0.5238,
+      "share injected watched fully": 0.5193,
+      "new tags per injected slot": 0.8569
+    },
+    "D. MMR (matched)": {
+      "injected slots": 1368.0,
+      "q injected": 0.5459,
+      "q displaced": 0.558,
+      "share injected above typical (q>0.5)": 0.5614,
+      "share injected watched fully": 0.5599,
+      "new tags per injected slot": 0.6806
+    },
+    "F. MMR + triggered": {
+      "injected slots": 2099.0,
+      "q injected": 0.5295,
+      "q displaced": 0.5568,
+      "share injected above typical (q>0.5)": 0.5417,
+      "share injected watched fully": 0.5198,
+      "new tags per injected slot": 0.8232
+    }
+  },
+  "new_to_user_narrow": {
+    "A. Baseline": 1.964,
+    "B. Random exploration": 2.179,
+    "C0. Streak breaker only": 2.111,
+    "C. Triggered injection": 3.598,
+    "E. Adjacent for everyone": 3.598,
+    "D. MMR (matched)": 2.29,
+    "F. MMR + triggered": 3.849
+  },
+  "triggered_users": 497,
+  "users": 1411,
+  "mmr_lambda": 0.004765625000000001
+}

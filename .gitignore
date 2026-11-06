@@ -5,3 +5,6 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 .DS_Store
+data/features_*.parquet
+data/cache/
+notebooks/.run*.log

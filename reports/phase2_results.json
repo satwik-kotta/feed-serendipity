@@ -1,0 +1,23 @@
+{
+  "views": 12530806,
+  "users": 7176,
+  "sessions": 101740,
+  "within_user_var_share": 0.821,
+  "mean_wr_A": 0.8912,
+  "short_term_wr_D10_vs_D1": 0.0255,
+  "short_term_wr_D10_vs_D1_pct": 2.86,
+  "short_term_exit_D10_vs_D1_pp": -1.143,
+  "exit_base_rate": 0.069,
+  "streak_4_5_wr_pct": -2.62,
+  "streak_6_9_wr_pct": -10.93,
+  "share_views_streak_ge4": 0.0131,
+  "next_day_views_Q5_vs_Q1_pct": -6.07,
+  "next_day_views_Q5_ci_pct": [
+    -8.89,
+    -3.25
+  ],
+  "next_day_active_Q5_vs_Q1_pp": -1.17,
+  "next_day_active_base": 0.9032,
+  "trigger_narrow_20_p60": 0.378,
+  "trigger_streak": 4
+}

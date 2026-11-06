@@ -52,6 +52,14 @@ feed-serendipity/
 - Confirm small matrix density and the big/small split
 
 ### Phase 2 · Narrowness and fatigue analysis (3 days)
+
+**Done. Findings** (numbers in `reports/phase2_results.json`)
+- Within a session, a narrower recent feed goes with slightly higher watch ratio (+2.9%, top vs bottom decile) and fewer exits (-1.1 pp on a 6.9% base). Replicated on a second user group and on 10, 20 and 50 video windows
+- Long same-tag runs hurt. Watch ratio is 2.6% lower after 4–5 in a row and 10.9% lower after 6–9 (1.3% of views)
+- Next day, the narrowest fifth of days predicts 6.1% fewer views (CI -8.9% to -3.3%) and a 1.2 pp lower chance of returning, against equally busy and engaging broad days
+- So narrowness pays today and costs tomorrow. That is the case for targeted exploration
+
+Original plan for this phase
 - Sessions in big_matrix from timestamp gaps (start with 30 minutes)
 - Narrowness Index = 1 minus normalized Shannon entropy of tag shares over the last N videos (N = 20, test 10 and 50)
 - Fatigue test. Does watch ratio fall as the Narrowness Index rises, or as the run of same tag videos grows? Use a fixed effects regression with user fixed effects so heavy watchers do not drive the result
@@ -68,7 +76,9 @@ feed-serendipity/
 Four arms, all scored on small_matrix ground truth
 - A. Baseline. Top 10 from the reranker
 - B. Random exploration. Replace 2 of 10 slots with random items
-- C. Triggered adjacent injection (the proposal). If a user's Narrowness Index is above threshold, replace 1 to 2 slots with the highest predicted items from adjacent tags the user has rarely watched
+- C. Triggered adjacent injection (the proposal), with two triggers from Phase 2
+  - Streak breaker. If the last 4 videos share a main tag, the next slot comes from an adjacent tag
+  - Narrowness trigger. If rolling narrowness of the last 20 videos is above 0.378 (60th percentile), replace 1 to 2 of 10 slots with the highest predicted items from adjacent tags the user rarely watches
 - D. MMR diversity rerank. Standard academic benchmark
 
 Adjacent tags come from tag co-occurrence in the big matrix (Jaccard or PMI), so "adjacent" is learned from data, not hand picked
